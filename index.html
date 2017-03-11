@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"  />
+    <link rel="stylesheet" href="style.css" />
+    <title>getman</title>
+  <!---  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> --->
+  </head>
+  <body>
+    <img src="getman.png" />
+    <h1>GetMan!</h1>
+    <br />
+    <button id="new">Nueva Solicitud</button>
+    <!--- NEW REQUEST INPUT --->
+    <div id="modal" class="modal hidden">
+      <!--- URL --->
+      <label>URL: <input id="url" placeholder="example.com/endpoint" /></label>
+      <!--- METHOD --->
+      <label>Metodo:  <select id="method">
+        <option selected disabled>--Metodo--</option>
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+        <option value="PUT">PUT</option>
+        <option value="DELETE">DELETE</option>
+      </select> </label>
+      <!--- TYPE OF DATA --->
+      <label>Tipo de data:<select id="data">
+        <option selected disabled>--Tipo de data--</option>
+        <option value="none">No enviar data</option>
+        <option value="application/json">JSON</option>
+        <option value="application/x-www-form-urlencoded">UrlEncoded</option>
+        <option value="multipart/form-data">FormData</option>
+      </select></label>
+      <!--- DATA INPUT --->
+      <div id="inputs">
+        <!--- JSON --->
+        <div id="JSON" class="">
+          <br />
+          <input id="propertyJSON" placeholder="propiedad"/>
+          <span>:</span>
+          <select id="typeJSON">
+            <option value="number">Numero</option>
+            <option value="text">Texto</option>
+            <option value="JSON">JSON</option>
+          </select>
+          <input id="valueJSON" placeholder="valor" /><br />
+          <span class="nota">JSON deben ser escritos con sintax</span>
+          <button id="addproperty">Añade propiedad</button><br /><br />
+          <table id="json2send">
+
+          </table><br />
+          <labe>Stringify antes de enviar<select id="string"><option value="YES">si</option><option value="NO">no</option></select></labe>
+          <br /><button id="sendJSON">Enviar solicitud</button>
+        </div>
+        <!--- FORM --->
+        <div id="FD">
+          <br />
+          <select id="forminput">
+            <option value="text">texto</option>
+            <option value="password">password</option>
+            <option value="file">File</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="email">Email</option>
+            <option value="other">otros</option>
+          </select>
+          <input id="otherForm"  class="hidden"/>
+          <span class="hint hidden">Inputs aceptados en HTML5: color, date,
+          datetime-local, month, number, range, search,
+          tel, time, url, week</span>
+          <label>Nombre: <input id="nameForm" placeholder="name"/></label>
+          <button id="addform">Anade a la forma</button>
+          <form id="form">
+
+          </form>
+          <button id="sendForm">Enviar solicitud</button>
+        </div>
+        <!--- URLencoded --->
+        <div id="URLE">
+          <br />
+          <input id="nameURLE" placeholder="propiedad"/>
+          <input id="valueURLE" placeholder="valor" /><br /><br />
+          <button id="addURL">Anadir al url</button><br />
+          <table>
+            <tr>
+              <th>
+                Nombre
+              </th>
+              <th>
+                Valor
+              </th>
+            </tr>
+            <tbody id="addedURL">
+
+            </tbody>
+          </table><br />
+          <button id="sendURL">Enviar Solicitud</button>
+        </div>
+        <!--- NONE --->
+        <div id="none">
+          <br />
+          <button id="sendNone">Enviar Solicitud</button>
+        </div>
+      </div>
+      <br />
+      <button id="cancelRequest">Cancel</button>
+    </div>
+    <div  class="history">
+      <table>
+          <tr>
+            <th>
+              #ID
+            </th>
+            <th>
+              Fecha y hora
+            </th>
+            <th>
+              Metodo
+            </th>
+            <th>
+              URL
+            </th>
+            <th>
+              Tipo de Data
+            </th>
+            <th>
+              Respuesta
+            </th>
+            <th>
+              Formato de respuesta
+            </th>
+          </tr>
+          <tbody id="history">
+
+          </tbody>
+      </table>
+    </div>
+    <div id="responseContent" class="hidden">
+      <br />
+      <button id="closeRes">Cerrar</button>
+      <p id="showRes">
+
+      </p>
+    </div>
+    <div class="err hidden" id="idid">
+      <div id="err">
+
+      </div>
+      <button id="closeErr">cerrar</button>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
